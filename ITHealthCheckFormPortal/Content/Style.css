@@ -1,0 +1,154 @@
+﻿body {
+    font-family: Segoe UI,Segoe WP,Tahoma,Arial,sans-serif;
+}
+
+.MainLayout {
+    width: 60%;
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.sub-layout {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.body-content {
+    width: 100%;
+    background: #1b2d5a;
+    color: white;
+    padding-top: 1px;
+}
+
+.form-container {
+    width: 90%;
+    margin: auto;
+}
+
+.header {
+    height: 200px;
+    padding: 40px;
+    color: #174883 !important;
+}
+
+sup {
+    vertical-align: baseline;
+    font-size: smaller;
+    color: red;
+}
+
+textarea {
+    resize: none;
+}
+
+.radio-field {
+    width: 100%;
+    display: flex;
+    padding-top: 20px;
+}
+
+.left {
+    width: 30%;
+    padding-left: 15px;
+}
+
+.right {
+    width: 70%;
+}
+
+.radio-right {
+    display: flex;
+}
+
+.list {
+    margin-top: 20px;
+}
+
+.odd {
+    padding-top: 20px;
+    display: flex;
+    background: #ddd;
+    color: #174883;
+}
+
+.even {
+    display: flex;
+    padding-top: 20px;
+    background: #f0f0f0;
+    color: #174883;
+}
+
+.column-number {
+    margin-right: 74px;
+}
+
+.radiobtn input[type="radio"] {
+    margin-right: 70px !important;
+}
+
+.radiobtn label {
+    display: none;
+}
+
+.field5 {
+    margin-top: 50px;
+}
+
+.checkbox {
+    display: flex;
+    margin-left: 20px;
+    margin-top: 50px;
+}
+
+.form-group {
+    margin-top: 50px;
+}
+
+.footer {
+    background-color: #174883;
+    font-size: 10px;
+}
+
+.footer-text {
+    padding: 40px;
+    color: white;
+}
+
+.submit-button {
+    padding-bottom: 60px;
+}
+
+.file-type {
+    font-size: 9px;
+}
+
+a {
+    color: white !important;
+}
+
+
+img {
+    width: 300px;
+}
+
+.heading {
+    margin-left: 420px;
+    margin-top: -90px;
+}
+
+.logo {
+    margin-top: 5px;
+}
+
+.menu-container {
+    background-color: #174883;
+    height: 40px;
+}
+
+.maindiv {
+    width: 100%;
+}
+
+.labelDiv {
+    width: 35%;
+}
