@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 using ITHealthCheckFormPortal.Model;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 
 namespace ITHealthCheckFormPortal.DataManger
 {
@@ -38,24 +37,33 @@ namespace ITHealthCheckFormPortal.DataManger
                 //}
             }
         }
-        public void SaveHealthCheckData(HealthCheckData objData)
+        public void SaveHealthCheckData(string objData)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            try
             {
-                SqlCommand cmd = new SqlCommand()
+                using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
-                    CommandText = "sp_SaveHealthCheckDetails",
-                    Connection = connection,
-                    CommandType = CommandType.StoredProcedure
-                };
-                cmd.Parameters.Add("@Category", SqlDbType.VarChar).Value = objData.category;
-                //cmd.Parameters.Add("@TicketID", SqlDbType.VarChar).Value = objData.TicketID;
-                cmd.Parameters.Add("@Description", SqlDbType.VarChar).Value = objData.description;
-                //cmd.Parameters.Add("@Terminal", SqlDbType.VarChar).Value = objData.Terminal;
-                //cmd.Parameters.Add("@Terminal", SqlDbType.VarChar).Value = objData.Status;
-                connection.Open();
-                cmd.ExecuteNonQuery();
+                    connection.Open();
+                    var data = (JObject)JsonConvert.DeserializeObject(objData);
+                    string insertQuery = "insert into ITHealthCheckFormPortal(TicketId,Category,Description,Terminal,Status,Email)values (@TicketId,@Category,@Description,@Terminal,@Status,@Email)";
+                    SqlCommand cmd = new SqlCommand(insertQuery, connection);
+                 
+                    cmd.Parameters.AddWithValue("@TicketId", (string)data.SelectToken("request.id"));
+                    cmd.Parameters.AddWithValue("@Category", (string)data.SelectToken("request.description"));
+                    cmd.Parameters.AddWithValue("@Description", (string)data.SelectToken("request.description"));
+                    cmd.Parameters.AddWithValue("@Terminal", (string)data.SelectToken("request.requester.email_id"));
+                    cmd.Parameters.AddWithValue("@Status", (string)data.SelectToken("request.status.name"));
+                    cmd.Parameters.AddWithValue("@Email", (string)data.SelectToken("request.requester.email_id"));
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
             }
+
+            catch(Exception ex)
+            {
+
+            }
+            
         }
     }
 }

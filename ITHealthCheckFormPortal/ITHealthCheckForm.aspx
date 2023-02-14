@@ -19,7 +19,85 @@
             debugger;
             var text = e.options[e.selectedIndex].text;
             var row = document.getElementById('trPrint');          
-            if (value == "4") {
+            if (value == "1" || value == "-99" || value == "0") {
+                row.style.display = "none";
+            }
+            else
+                row.style.display = "";
+        }
+        function ddlComputerClick() {
+
+            var e = document.getElementById("ddlComputer");
+            var value = e.value;
+            debugger;
+            var text = e.options[e.selectedIndex].text;
+            var row = document.getElementById('trComputer');
+            if (value == "1" || value == "-99" || value == "0") {
+                row.style.display = "none";
+            }
+            else
+                row.style.display = "";
+        }
+        function ddlWirelessClick() {
+
+            var e = document.getElementById("ddlWireless");
+            var value = e.value;
+            debugger;
+            var text = e.options[e.selectedIndex].text;
+            var row = document.getElementById('trWireless');
+            if (value == "1" || value == "-99" || value == "0") {
+                row.style.display = "none";
+            }
+            else
+                row.style.display = "";
+        }
+        function ddlTabletClick() {
+
+            var e = document.getElementById("ddlTablet");
+            var value = e.value;
+            debugger;
+            var text = e.options[e.selectedIndex].text;
+            var row = document.getElementById('trTablet');
+            if (value == "1" || value == "-99" || value == "0") {
+                row.style.display = "none";
+            }
+            else
+                row.style.display = "";
+        }
+        function ddlDeskPhoneClick() {
+
+            var e = document.getElementById("ddlDeskPhone");
+            var value = e.value;
+            debugger;
+            var text = e.options[e.selectedIndex].text;
+            var row = document.getElementById('trDeskPhone');
+            if (value == "1" || value == "-99" || value == "0") {
+                row.style.display = "none";
+            }
+            else
+                row.style.display = "";
+        }
+        function ddlCopierClick() {
+
+            var e = document.getElementById("ddlCopier");
+            var value = e.value;
+            debugger;
+            var text = e.options[e.selectedIndex].text;
+            var row = document.getElementById('trCopier');
+            if (value == "1" || value == "-99" || value == "0") {
+                row.style.display = "none";
+            }
+            else
+                row.style.display = "";
+        }
+        function ddlScanGunClick() {
+
+            var e = document.getElementById("ddlScanGun");
+            var value = e.value;
+            debugger;
+            var text = e.options[e.selectedIndex].text;
+            var row = document.getElementById('trScanGun');
+            if (value == "1" || value == "-99" || value == "0") {
                 row.style.display = "none";
             }
             else
@@ -66,7 +144,7 @@
                                         <tr>
                                             <td align='center'>Email:</td>
                                             <td>
-                                                <input type='text' id="txtEmail" name='txtEmail' runat="server" style="width:90%;" /></td>
+                                                <input type='text' id="txtEmail" name='txtEmail' runat="server" style="width:88%;" /></td>
                                         </tr>
                                         <tr>
                                             <td>&nbsp;</td>
@@ -87,10 +165,10 @@
                                                 <asp:DropDownList ID="ddlPrinter" runat="server" style="width:90%;" onChange="ddlPrinterClick();">
                                                     <asp:ListItem Text="Select" Value="-99" />
                                                     <asp:ListItem Text="Not applicable" Value="0" />
-                                                    <asp:ListItem Text="Critical" Value="1" />
-                                                    <asp:ListItem Text="Urgent" Value="2" />
-                                                    <asp:ListItem Text="Needs attention" Value="3" />
-                                                    <asp:ListItem Text="No Problems" Value="4" />
+                                                    <asp:ListItem Text="Critical" Value="4" />
+                                                    <asp:ListItem Text="Urgent" Value="3" />
+                                                    <asp:ListItem Text="Needs attention" Value="2" />
+                                                    <asp:ListItem Text="No Problems" Value="1" />
                                                 </asp:DropDownList></td>
                                         </tr>
                                          <tr>
@@ -99,7 +177,7 @@
                                         <tr id="trPrint" style="display:none;">
 
                                             <td align='center'>Issue Description:</td>
-                                            <td><input type='text' id="txtPrinterDesc" name='txtPrinterDesc' runat="server" style="width:90%;padding:5px 5px 5px 5px;" /></td>
+                                            <td><input type='text' id="txtPrinterDesc" name='txtPrinterDesc' runat="server" style="width:88%;padding:5px 3px 64px 1px;" /></td>
                                         </tr>
                                          <tr>
                                             <td>&nbsp;</td>
@@ -110,10 +188,10 @@
                                                 <asp:DropDownList ID="ddlComputer" runat="server" style="width:90%;" onChange="ddlComputerClick();">
                                                     <asp:ListItem Text="Select" Value="-99" />
                                                     <asp:ListItem Text="Not applicable" Value="0" />
-                                                    <asp:ListItem Text="Critical" Value="1" />
-                                                    <asp:ListItem Text="Urgent" Value="2" />
-                                                    <asp:ListItem Text="Needs attention" Value="3" />
-                                                    <asp:ListItem Text="No Problems" Value="4" />
+                                                    <asp:ListItem Text="Critical" Value="4" />
+                                                    <asp:ListItem Text="Urgent" Value="3" />
+                                                    <asp:ListItem Text="Needs attention" Value="2" />
+                                                    <asp:ListItem Text="No Problems" Value="1" />
                                                 </asp:DropDownList></td>
                                         </tr>
                                         <tr>
@@ -122,7 +200,7 @@
                                          <tr id="trComputer" style="display:none;">
 
                                             <td align='center'>Issue Description:</td>
-                                            <td><input type='text' id="txtComputerDesc" name='txtComputerDesc' runat="server" style="width:90%;padding:5px 5px 5px 5px;" /></td>
+                                            <td><input type='text' id="txtComputerDesc" name='txtComputerDesc' runat="server" style="width:88%;padding:5px 3px 64px 1px;" /></td>
                                         </tr>
                                          <tr>
                                             <td>&nbsp;</td>
@@ -133,10 +211,10 @@
                                                 <asp:DropDownList ID="ddlWireless" runat="server" style="width:90%;" onChange="ddlWirelessClick();">
                                                     <asp:ListItem Text="Select" Value="-99" />
                                                     <asp:ListItem Text="Not applicable" Value="0" />
-                                                    <asp:ListItem Text="Critical" Value="1" />
-                                                    <asp:ListItem Text="Urgent" Value="2" />
-                                                    <asp:ListItem Text="Needs attention" Value="3" />
-                                                    <asp:ListItem Text="No Problems" Value="4" />
+                                                    <asp:ListItem Text="Critical" Value="4" />
+                                                    <asp:ListItem Text="Urgent" Value="3" />
+                                                    <asp:ListItem Text="Needs attention" Value="2" />
+                                                    <asp:ListItem Text="No Problems" Value="1" />
                                                 </asp:DropDownList></td>
                                         </tr>
                                         <tr>
@@ -145,7 +223,7 @@
                                         <tr id="trWireless" style="display:none;">
 
                                             <td align='center'>Issue Description:</td>
-                                            <td><input type='text' id="txtWirelessDesc" name='txtWirelessDesc' runat="server" style="width:90%;padding:5px 5px 5px 5px;" /></td>
+                                            <td><input type='text' id="txtWirelessDesc" name='txtWirelessDesc' runat="server" style="width:88%;padding:5px 3px 64px 1px;" /></td>
                                         </tr>
                                          <tr>
                                             <td>&nbsp;</td>
@@ -156,10 +234,10 @@
                                                 <asp:DropDownList ID="ddlTablet" runat="server" style="width:90%;" onChange="ddlTabletClick();">
                                                     <asp:ListItem Text="Select" Value="-99" />
                                                     <asp:ListItem Text="Not applicable" Value="0" />
-                                                    <asp:ListItem Text="Critical" Value="1" />
-                                                    <asp:ListItem Text="Urgent" Value="2" />
-                                                    <asp:ListItem Text="Needs attention" Value="3" />
-                                                    <asp:ListItem Text="No Problems" Value="4" />
+                                                    <asp:ListItem Text="Critical" Value="4" />
+                                                    <asp:ListItem Text="Urgent" Value="3" />
+                                                    <asp:ListItem Text="Needs attention" Value="2" />
+                                                    <asp:ListItem Text="No Problems" Value="1" />
                                                 </asp:DropDownList></td>
                                         </tr>
                                         <tr>
@@ -169,7 +247,7 @@
                                         <tr id="trTablet" style="display:none;">
 
                                             <td align='center'>Issue Description:</td>
-                                            <td><input type='text' id="txtTabletDesc" name='txtTabletDesc' runat="server" style="width:90%;padding:5px 5px 5px 5px;" /></td>
+                                            <td><input type='text' id="txtTabletDesc" name='txtTabletDesc' runat="server" style="width:88%;padding:5px 3px 64px 1px;" /></td>
                                         </tr>
                                         <tr>
                                             <td>&nbsp;</td>
@@ -180,10 +258,10 @@
                                                 <asp:DropDownList ID="ddlDeskPhone" runat="server" Style="width: 90%;" onChange="ddlDeskPhoneClick();">
                                                     <asp:ListItem Text="Select" Value="-99" />
                                                     <asp:ListItem Text="Not applicable" Value="0" />
-                                                    <asp:ListItem Text="Critical" Value="1" />
-                                                    <asp:ListItem Text="Urgent" Value="2" />
-                                                    <asp:ListItem Text="Needs attention" Value="3" />
-                                                    <asp:ListItem Text="No Problems" Value="4" />
+                                                    <asp:ListItem Text="Critical" Value="4" />
+                                                    <asp:ListItem Text="Urgent" Value="3" />
+                                                    <asp:ListItem Text="Needs attention" Value="2" />
+                                                    <asp:ListItem Text="No Problems" Value="1" />
                                                 </asp:DropDownList></td>
                                         </tr>
                                         
@@ -193,7 +271,7 @@
                                         <tr id="trDeskPhone" style="display:none;">
 
                                             <td align='center'>Issue Description:</td>
-                                            <td><input type='text' id="txtDeskPhoneDesc" name='txtDeskPhoneDesc' runat="server" style="width: 90%;padding:5px 5px 5px 5px;" /></td>
+                                            <td><input type='text' id="txtDeskPhoneDesc" name='txtDeskPhoneDesc' runat="server" style="width:88%;padding:5px 3px 64px 1px;" /></td>
                                         </tr>
                                         <tr>
                                             <td>&nbsp;</td>
@@ -204,10 +282,10 @@
                                                 <asp:DropDownList ID="ddlCopier" runat="server" Style="width: 90%;" onChange="ddlCopierClick();">
                                                     <asp:ListItem Text="Select" Value="-99" />
                                                     <asp:ListItem Text="Not applicable" Value="0" />
-                                                    <asp:ListItem Text="Critical" Value="1" />
-                                                    <asp:ListItem Text="Urgent" Value="2" />
-                                                    <asp:ListItem Text="Needs attention" Value="3" />
-                                                    <asp:ListItem Text="No Problems" Value="4" />
+                                                    <asp:ListItem Text="Critical" Value="4" />
+                                                    <asp:ListItem Text="Urgent" Value="3" />
+                                                    <asp:ListItem Text="Needs attention" Value="2" />
+                                                    <asp:ListItem Text="No Problems" Value="1" />
                                                 </asp:DropDownList></td>
                                         </tr>
                                    
@@ -217,7 +295,7 @@
                                         <tr id="trCopier" style="display:none;">
 
                                             <td align='center'>Issue Description:</td>
-                                            <td><input type='text' runat="server" id="txtCopierDesc" name='txtCopierDesc' style="width: 90%;padding:5px 5px 5px 5px;" /></td>
+                                            <td><input type='text' runat="server" id="txtCopierDesc" name='txtCopierDesc' style="width:88%;padding:5px 3px 64px 1px;" /></td>
                                         </tr>
                                         <tr>
                                             <td>&nbsp;</td>
@@ -228,10 +306,10 @@
                                                 <asp:DropDownList ID="ddlScanGun" runat="server" Style="width: 90%;" onChange="ddlScanGunClick();">
                                                     <asp:ListItem Text="Select" Value="-99" />
                                                     <asp:ListItem Text="Not applicable" Value="0" />
-                                                    <asp:ListItem Text="Critical" Value="1" />
-                                                    <asp:ListItem Text="Urgent" Value="2" />
-                                                    <asp:ListItem Text="Needs attention" Value="3" />
-                                                    <asp:ListItem Text="No Problems" Value="4" />
+                                                    <asp:ListItem Text="Critical" Value="4" />
+                                                    <asp:ListItem Text="Urgent" Value="3" />
+                                                    <asp:ListItem Text="Needs attention" Value="2" />
+                                                    <asp:ListItem Text="No Problems" Value="1" />
                                                 </asp:DropDownList></td>
                                         </tr>
                                         
@@ -241,7 +319,7 @@
                                         <tr id="trScanGun" style="display:none;">
 
                                             <td align='center'>Issue Description:</td>
-                                            <td><input type='text' id="txtScanGun" name='txtScanGun'  runat="server" style="padding:5px 5px 5px 5px;" /></td>
+                                            <td><input type='text' id="txtScanGun" name='txtScanGun'  runat="server" style="width:88%;padding:5px 3px 64px 1px;" /></td>
                                         </tr>
                                         <tr>
                                             <td>&nbsp;</td>
