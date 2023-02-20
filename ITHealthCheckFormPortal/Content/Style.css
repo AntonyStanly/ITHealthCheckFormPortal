@@ -26,7 +26,7 @@
 }
 
 .header {
-    height: 200px;
+    height: 166px;
     padding: 40px;
     color: #174883 !important;
 }
@@ -118,6 +118,24 @@ textarea {
     padding-bottom: 60px;
 }
 
+.form-submit-button {
+    background: #337ab7;
+    border-color: #337ab7;
+    color: white;
+    text-shadow: none;
+    height: 32px;
+    width: 97px;
+    font-size: larger;
+    border-radius: 6px;
+}
+
+    .form-submit-button:hover {
+        background: #174883;
+        border-color: #174883;
+        color: #fff;
+        text-shadow: none;
+    } 
+
 .file-type {
     font-size: 9px;
 }
@@ -128,7 +146,8 @@ a {
 
 
 img {
-    width: 300px;
+    height: 159px;
+    width: 204px;
 }
 
 .heading {
@@ -137,6 +156,7 @@ img {
 }
 
 .logo {
+    height:147px;
     margin-top: 5px;
 }
 
@@ -151,4 +171,14 @@ img {
 
 .labelDiv {
     width: 35%;
+}
+
+.tr-size {
+    height: 70px;
+}
+
+.input-container {
+    height: 20px;
+    font-size: medium;
+    width: 90%;
 }

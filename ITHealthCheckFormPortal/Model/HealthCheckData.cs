@@ -33,7 +33,7 @@ namespace ITHealthCheckFormPortal.Model
         public requester requester;
         //public status status;
         public priority priority;
-        //public string category { get; set; } = "Printers";
+        public category category{ get; set; }
         //public string subcategory { get; set; } = "Canon Multi-Function Printer";
         //public string item { get; set; } = "Scan to Email";
     }
@@ -47,6 +47,11 @@ namespace ITHealthCheckFormPortal.Model
     {
         public string id { get; set; }
 
+    }
+
+    public class category
+    {
+        public string name { get; set; }
     }
 
 

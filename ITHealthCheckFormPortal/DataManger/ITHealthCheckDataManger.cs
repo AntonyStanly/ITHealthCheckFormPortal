@@ -5,6 +5,7 @@ using ITHealthCheckFormPortal.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Threading.Tasks;
 
 namespace ITHealthCheckFormPortal.DataManger
 {
@@ -21,26 +22,16 @@ namespace ITHealthCheckFormPortal.DataManger
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                connection.Open();
-
-                using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                connection.Open(); using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                 {
                     sda.Fill(dtTerminal);
                 }
                 return dtTerminal;
-                //SqlDataReader sdr = cmd.ExecuteReader();
-                //while (sdr.Read())
-                //{
-                //    dsTerminal = new DataSet();
-
-                //    Console.WriteLine(sdr["Id"] + ",  " + sdr["Name"] + ",  " + sdr["Email"] + ",  " + sdr["Mobile"]);
-                //}
             }
         }
         public void SaveHealthCheckData(string objData)
         {
-            try
-            {
+            
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
                     connection.Open();
@@ -57,12 +48,6 @@ namespace ITHealthCheckFormPortal.DataManger
                     cmd.ExecuteNonQuery();
                     connection.Close();
                 }
-            }
-
-            catch(Exception ex)
-            {
-
-            }
             
         }
     }

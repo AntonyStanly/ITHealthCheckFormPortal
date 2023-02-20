@@ -14,7 +14,7 @@ namespace ITHealthCheckFormPortal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // BindTerminal();
+             BindTerminal();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -25,23 +25,18 @@ namespace ITHealthCheckFormPortal
                 request request = new request();
                 priority priority = new priority();
                 requester requester = new requester();
+                category category = new category();
                 request.requester = requester;
                 request.priority = priority;
+                request.category = category;
                 healthCheckData.request = request;
-                //HealthCheckResponseData healthCheckResponseData = new HealthCheckResponseData();
-                //HealthCheckResponseData.request request1 = new HealthCheckResponseData.request();
-                //HealthCheckResponseData.requester requester1 = new HealthCheckResponseData.requester();
-                //HealthCheckResponseData.status status = new HealthCheckResponseData.status();
-                //request1.requester = requester1;
-                //request1.status = status;
-                
+     
 
-
-                request.requester.email_id = txtEmail.Value;
+                request.requester.email_id = email.Value;
                 //healthCheckData.service_category = "Terminal";// ddlTerminal.SelectedItem.Value;
                 if (Convert.ToInt32(ddlPrinter.SelectedValue) != 0 && Convert.ToInt32(ddlPrinter.SelectedValue) != 1 && Convert.ToInt32(ddlPrinter.SelectedValue) != -99)
                 {
-                    //request.category = "Printers";
+                    request.category.name = "Printers";
                     request.description = txtPrinterDesc.Value;
                     request.priority.id = ddlPrinter.SelectedValue;
                     var response = SaveDataToServiceDeskAsync(healthCheckData);
@@ -50,7 +45,7 @@ namespace ITHealthCheckFormPortal
 
                 if (Convert.ToInt32(ddlComputer.SelectedValue) != 0 && Convert.ToInt32(ddlComputer.SelectedValue) != 1 && Convert.ToInt32(ddlComputer.SelectedValue) != -99)
                 {
-                    //request.category = "Computer";
+                    request.category.name = "Computer";
                     request.description = txtComputerDesc.Value;
                     request.priority.id = ddlComputer.SelectedValue;
                     var response = SaveDataToServiceDeskAsync(healthCheckData);
@@ -59,7 +54,7 @@ namespace ITHealthCheckFormPortal
 
                 if (Convert.ToInt32(ddlWireless.SelectedValue) != 0 && Convert.ToInt32(ddlWireless.SelectedValue) != 1 && Convert.ToInt32(ddlWireless.SelectedValue) != -99)
                 {
-                    //request.category = "Wireless";
+                    request.category.name = "Wireless";
                     request.description = txtWirelessDesc.Value;
                     request.priority.id = ddlWireless.SelectedValue;
                     var response = SaveDataToServiceDeskAsync(healthCheckData);
@@ -67,7 +62,7 @@ namespace ITHealthCheckFormPortal
                 }
                 if (Convert.ToInt32(ddlTablet.SelectedValue) != 0 && Convert.ToInt32(ddlTablet.SelectedValue) != 1 && Convert.ToInt32(ddlTablet.SelectedValue) != -99)
                 {
-                    //request.category = "Tablet";
+                    request.category.name = "Tablet";
                     request.description = txtTabletDesc.Value;
                     request.priority.id = ddlTablet.SelectedValue;
                     var response = SaveDataToServiceDeskAsync(healthCheckData);
@@ -75,7 +70,7 @@ namespace ITHealthCheckFormPortal
                 }
                 if (Convert.ToInt32(ddlDeskPhone.SelectedValue) != 0 && Convert.ToInt32(ddlDeskPhone.SelectedValue) != 1 && Convert.ToInt32(ddlDeskPhone.SelectedValue) != -99)
                 {
-                    //request.category = "Phone";
+                    request.category.name = "Phone";
                     request.description = txtDeskPhoneDesc.Value;
                     request.priority.id = ddlDeskPhone.SelectedValue;
                     var response = SaveDataToServiceDeskAsync(healthCheckData);
@@ -83,7 +78,7 @@ namespace ITHealthCheckFormPortal
                 }
                 if (Convert.ToInt32(ddlCopier.SelectedValue) != 0 && Convert.ToInt32(ddlCopier.SelectedValue) != 1 && Convert.ToInt32(ddlCopier.SelectedValue) != -99)
                 {
-                    //request.category = "Copier";
+                    request.category.name = "Copier";
                     request.description = txtCopierDesc.Value;
                     request.priority.id = ddlCopier.SelectedValue;
                     var response = SaveDataToServiceDeskAsync(healthCheckData);
@@ -91,17 +86,31 @@ namespace ITHealthCheckFormPortal
                 }
                 if (Convert.ToInt32(ddlScanGun.SelectedValue) != 0 && Convert.ToInt32(ddlScanGun.SelectedValue) != 1 && Convert.ToInt32(ddlScanGun.SelectedValue) != -99)
                 {
-                    //request.category = "Scan Gun";
+                    request.category.name = "Scan Gun";
                     request.description = txtScanGun.Value;
                     request.priority.id = ddlScanGun.SelectedValue;
                     var response = SaveDataToServiceDeskAsync(healthCheckData);
                     SaveData(response);
                 }
+                string script = "window.onload = function(){ alert('";
+                script += "Submitted successfully";
+                script += "');";
+                script += "window.location = '";
+                script += Request.Url.AbsoluteUri;
+                script += "'; }";
+                ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", script, true);
             }
             catch (Exception ex)
             {
-
+                string script = "window.onload = function(){ alert('";
+                script += ex.Message.ToString();
+                script += "');";
+                script += "window.location = '";
+                script += Request.Url.AbsoluteUri;
+                script += "'; }";
+                ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", script, true);
             }
+            
         }
 
         public void BindTerminal()
@@ -109,7 +118,10 @@ namespace ITHealthCheckFormPortal
             ITHealthCheckDataManger dataManager = new ITHealthCheckDataManger();
             DataTable dt = dataManager.GetTerminalDetails();
             ddlTerminal.DataSource = dt;
+            ddlTerminal.DataTextField = "TerminalName";
+            ddlTerminal.DataValueField = "TerminalNumber";
             ddlTerminal.DataBind();
+            ddlTerminal.Items.Insert(0, "-- Select --");
         }
 
         public void SaveData(string objData)
